@@ -1,0 +1,588 @@
+@startuml
+class com.example.myapplication.javaclass.UserSession {
+~ UserState userState
+~ String Email
++ <<Create>> UserSession()
++ void changeState(UserState)
++ boolean login(String,String)
++ String getEmail()
+}
+
+
+class com.example.myapplication.TokenizerParser.StringSearchExp {
+- Exp string
+- Exp type
+- String symbol
+- {static} StringSearchExp stringSearchExp
++ <<Create>> StringSearchExp(Exp,String,Exp)
++ String show()
++ void evaluate()
+}
+
+
+class com.example.myapplication.javaclass.NoSessionState {
++ <<Create>> NoSessionState(UserSession)
++ boolean login(String,String)
++ boolean logout()
+}
+
+class com.example.myapplication.TokenizerParser.Tokenizer {
+- String buffer
+- Token currentToken
++ <<Create>> Tokenizer(String)
++ void next()
++ Token current()
++ boolean hasNext()
+}
+
+
+class com.example.myapplication.ui.adapter.StoreAdapter {
+- Context mContext
+- List<UsersBean> usersBeanList
++ <<Create>> StoreAdapter(Context,List<UsersBean>)
++ StoreViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(StoreViewHolder,int)
++ int getItemCount()
+}
+
+
+class com.example.myapplication.ui.adapter.StoreAdapter$StoreViewHolder {
+~ TextView name
++ <<Create>> StoreViewHolder(View)
+}
+
+
+class com.example.myapplication.ui.adapter.StoreActivity {
+- RecyclerView recyclerView
+- StoreAdapter storeAdapter
+- List<UsersBean> list
+- {static} String TAG
+- ProgressDialog progressDialog
+- RedBlackTree<Goods> goodsTree
+- RedBlackTree<User> userTree
+# void onCreate(Bundle)
+- void initShowProgressDialog()
+}
+
+
+class com.example.myapplication.UploadInformation {
+~ EditText userIDEditText
+~ EditText goodsIDEditText1
+~ EditText likeIDEditText1
+~ Button uploadButton
+~ Button backhomeButton
+~ FirebaseDatabase database
+~ DatabaseReference reference
+# void onCreate(Bundle)
+}
+
+
+class com.example.myapplication.Register {
+~ EditText editTextEmail
+~ Button buttonReg
+~ Button buttonLog
+~ FirebaseAuth mAuth
+~ ProgressBar progressBar
++ void onStart()
+# void onCreate(Bundle)
+}
+
+
+class com.example.myapplication.ui.adapter.UsersBean {
+- String upassword
+- List<String> likeIDs
+- int uId
+- String name
+- List<String> goodIDs
+- String surl
++ <<Create>> UsersBean(String,List<String>,int,String,List<String>)
++ <<Create>> UsersBean()
++ String getSurl()
++ void setSurl(String)
++ String getUpassword()
++ void setUpassword(String)
++ List<String> getLikeIDs()
++ void setLikeIDs(List<String>)
++ int getuId()
++ void setuId(int)
++ String getName()
++ void setName(String)
++ List<String> getGoodIDs()
++ void setGoodIDs(List<String>)
++ int compareTo(UsersBean)
+}
+
+
+class com.example.myapplication.Login {
+~ EditText editTextEmail
+~ Button buttonLogin
+~ Button buttonRegister
+~ FirebaseAuth mAuth
+~ ProgressBar progressBar
++ void onStart()
+# void onCreate(Bundle)
+}
+
+
+class com.example.myapplication.javaclass.SessionState {
++ <<Create>> SessionState(UserSession)
++ boolean login(String,String)
++ boolean logout()
+}
+
+class com.example.myapplication.MapActivity {
+~ MapView mMapView
+- RelativeLayout rlRoot
+- MapView map
+~ SearchManager manager
+# void onCreate(Bundle)
+- void addGoodsMarker(ArrayList<Goods>)
+# void onDestroy()
+# void onResume()
+# void onPause()
+# void onSaveInstanceState(Bundle)
+- void initView()
+}
+
+
+class com.example.myapplication.TokenizerParser.StringExp {
+- String value
++ <<Create>> StringExp(String)
++ String getValue()
++ String show()
++ void evaluate()
+}
+
+
+class com.example.myapplication.TokenizerParser.IntSearchExp {
+- Exp term
+- String symbol
+- int number
+- {static} IntSearchExp intSearchExp
++ <<Create>> IntSearchExp(Exp,String,int)
++ String show()
++ void evaluate()
+}
+
+
+class com.example.myapplication.TokenizerTest {
+- {static} Tokenizer tokenizer
+- {static} String MID
+- {static} String ADVANCED
+- {static} String ALLSYMBOL
++ void testSemicolonToken()
++ void testColonToken()
++ void testEqualToken()
++ void testLargeToken()
++ void testLessToken()
++ void testMidTokenResult()
++ void testExceptionToken()
+}
+
+
+class com.example.myapplication.GoodsTest {
+- Goods good1
+- Goods good2
+- Goods good3
++ void setAndGetTest()
++ void editTest()
++ void setUp()
++ void testCompareToEqual()
++ void testCompareToNull()
+}
+
+
+class com.example.myapplication.UserTest {
++ void testSet()
++ void testEditGoodslist()
++ void testEditLikelist()
++ void testCompareId()
+}
+
+class com.example.myapplication.ParserTest {
+- {static} Tokenizer tokenizer
+- {static} String SIMPLE_CASE
+- {static} String MID_CASE
+- {static} String COMPLEX_CASE1
+- {static} String COMPLEX_CASE2
+- {static} SearchManager manager
++ void testSimpleQuery()
++ void testMidQuery()
++ void testComplexQuery()
++ void testComplexQuery2()
++ void testSimpleEvaluate()
++ void testMidEvaluate()
++ void testComplexEvaluate()
++ void resetSearchManger()
+}
+
+
+class com.example.myapplication.ExampleUnitTest {
++ void addition_isCorrect()
+}
+
+class com.example.myapplication.TokenizerParser.FullExp {
+- Exp term
+- Exp exp
++ <<Create>> FullExp(Exp,Exp)
++ String show()
++ void evaluate()
+}
+
+
+class com.example.myapplication.TokenizerParser.Token {
+- String token
+- Type type
++ <<Create>> Token(String,Type)
++ String getToken()
++ Type getType()
++ String toString()
++ boolean equals(Object)
++ int hashCode()
+}
+
+
+enum com.example.myapplication.TokenizerParser.Type {
++  INT
++  EQU
++  SEMI
++  LAR
++  LESS
++  STR
++  COL
+}
+
+class com.example.myapplication.TokenizerParser.Token$IllegalTokenException {
++ <<Create>> IllegalTokenException(String)
+}
+
+abstract class com.example.myapplication.javaclass.UserState {
+# UserSession userSession
++ <<Create>> UserState(UserSession)
++ {abstract}boolean login(String,String)
++ {abstract}boolean logout()
+}
+
+
+class com.example.myapplication.SearchActivity {
+- SearchManager searchManager
+- FirebaseHandler firebaseHandler
+- RelativeLayout rlRoot
+- TextView etCondition
+- TextView tvSubmit
+# void onCreate(Bundle)
+# void onResume()
++ void toMap(View)
+- void initView()
+}
+
+
+class com.example.myapplication.ui.adapter.StoreUserAdapter {
+- RedBlackTree<UsersBean> tree
++ <<Create>> StoreUserAdapter(FirebaseRecyclerOptions<UsersBean>)
++ void setRedBlackTree(RedBlackTree<UsersBean>)
+# void onBindViewHolder(myViewHolder,int,UsersBean)
++ myViewHolder onCreateViewHolder(ViewGroup,int)
++ void loadDataAndCreateTree()
+}
+
+
+class com.example.myapplication.ui.adapter.StoreUserAdapter$myViewHolder {
+~ CircleImageView img
+~ TextView name
+~ Button btnDelete
++ <<Create>> myViewHolder(View)
+}
+
+
+class com.example.myapplication.Search.FirebaseHandler {
+- {static} String TAG
+- DatabaseReference databaseReference
++ <<Create>> FirebaseHandler()
++ void fetchGoodsDataAndInsertIntoSearchManager()
++ void fetchUserDataAndInsertIntoSearchManager()
+}
+
+
+class com.example.myapplication.Java.RedBlackTree {
++ <<Create>> RedBlackTree()
++ void viewTree(RBNode<T>)
++ void insert(T)
++ void delete(T)
++ RedBlackTree<T> convertListToTree(List<T>)
++ User findUserById(int)
++ Goods findGoodById(int)
++ void findGoodsByUser(int,String,ArrayList<Goods>)
++ void findGoodsByGoodName(RBNode<T>,String,List<Goods>)
++ void findGoodsByPriceCondition(RBNode<T>,double,String,List<Goods>)
++ void findGoodsByCoordinatesCondition(RBNode<T>,int,Pair,List<Goods>)
++ void provNodeListHelper(RBNode<T>,List<RBNode<T>>)
+}
+
+class com.example.myapplication.MainActivity {
+~ FirebaseAuth auth
+~ Button buttonLogout
+~ Button buttonAdd
+~ Button buttonstoreUser
+~ TextView textView
+~ FirebaseUser user
+# void onCreate(Bundle)
+}
+
+
+class com.example.myapplication.SearchManagerTest {
+~ SearchManager manager
+~ RedBlackTree<Goods> goodsRedBlackTree
+~ RedBlackTree<User> userRedblackTree
+~ ArrayList<Goods> goodsList
+~ String simpleSearch1
+~ String simpleSearch2
+~ String midSearch
+~ String complexSerach
+~ String[] goods
++ void setGoodsRedBlackTree()
++ void resetSearchManager()
++ void testSimpleQuery1()
++ void testSimpleQuery2()
++ void testMidQuery()
++ void testComplexQuery()
+}
+
+
+class com.example.myapplication.Java.RBTreeTest {
+- RedBlackTree<Integer> tree
++ void setUp()
++ void testDeleteNonExisting()
++ void testFindUserById()
++ void testFindUserByIdOnGoodsTree()
++ void testFindGoodById()
+}
+
+
+class com.example.myapplication.Java.Pair {
+~ double x
+~ double y
++ <<Create>> Pair(double,double)
++ <<Create>> Pair(String)
++ double getX()
++ void setX(double)
++ double getY()
++ void setY(double)
++ double calculateDistance(Pair)
++ boolean equals(Object)
++ int hashCode()
++ String toString()
+}
+
+
+class com.example.myapplication.TokenizerParser.Parser {
+~ Tokenizer tokenizer
++ <<Create>> Parser(Tokenizer)
++ Exp parseExp()
++ Exp parseTerm()
++ Exp parseString()
+}
+
+
+class com.example.myapplication.TokenizerParser.Parser$IllegalProductionException {
++ <<Create>> IllegalProductionException(String)
+}
+
+class com.example.myapplication.Java.User {
++ int uID
++ String uName
++ String upassword
++ Set<Integer> goodsIDs
++ Set<Integer> likeIDs
++ <<Create>> User()
++ <<Create>> User(int,String)
++ <<Create>> User(int)
++ <<Create>> User(String)
++ <<Create>> User(int,String,String,Set<Integer>,Set<Integer>)
++ int getuID()
++ String getuName()
++ String getUpassword()
++ Set<Integer> getGoodsIDs()
++ Set<Integer> getLikeIDs()
++ void set(String)
++ void addTheGoods(int)
++ void addTheLike(int)
++ void removeTheGoods(int)
++ void removeTheLike(int)
++ int compareIds(User)
++ String toString()
++ int compareTo(User)
++ String getName()
+}
+
+
+class com.example.myapplication.Java.Goods {
+- int gID
+- String gName
+- String waitForFuture
+- String goodDescription
+- Double price
+- Pair coordinates
++ <<Create>> Goods()
++ <<Create>> Goods(int,String,double)
++ <<Create>> Goods(String)
++ int getgID()
++ String getgName()
++ String getWaitForFuture()
++ void editGName(String)
++ void editWaitForFuture(String)
++ void setgID(int)
++ void setgName(String)
++ void setWaitForFuture(String)
++ String getGoodDescription()
++ void setGoodDescription(String)
++ Double getPrice()
++ void setPrice(Double)
++ Pair getCoordinates()
++ void setCoordinates(Pair)
++ String toString()
++ int compareTo(Goods)
++ String getName()
++ boolean equals(Object)
++ int hashCode()
+}
+
+
+class com.example.myapplication.Search.SearchManager {
+- {static} SearchManager instance
+- ArrayList<Search> searchArrayList
+- List<Goods> searchGoodsResults
+- List<User> searchUserResults
+- Pair userLocation
+- RedBlackTree<Goods> goodsRedBlackTree
+- RedBlackTree<User> userRedBlackTree
+- <<Create>> SearchManager()
++ {static} SearchManager getInstance()
++ void resetListAfterSearch()
++ List<Goods> getSearchGoodsResults()
++ List<User> getSearchUserResults()
++ Pair getUserLocation()
++ void setUserLocation(Pair)
++ void setGoodsRedBlackTree(RedBlackTree<Goods>)
++ RedBlackTree<User> getUserRedBlackTree()
++ RedBlackTree<Goods> getGoodsRedBlackTree()
++ void setUserRedBlackTree(RedBlackTree<User>)
++ ArrayList<Search> getSearchArrayList()
++ void addSearchString(Search)
++ void searchingResult()
+- void searchingIntResult(String,String,int)
++ ArrayList<Goods> performQuery(String)
+- void searchingStringResult(String,String,String)
++ void setUserTree(RedBlackTree<User>)
++ void setData(RedBlackTree<Goods>)
++ ArrayList<Goods> search(String)
+}
+
+
+abstract class com.example.myapplication.TokenizerParser.Exp {
++ {abstract}String show()
++ {abstract}void evaluate()
+}
+
+class com.example.myapplication.UserView {
+~ RecyclerView recyclerView
+~ StoreUserAdapter storeUserAdapter
+# void onCreate(Bundle)
+# void onStart()
+# void onStop()
+}
+
+
+abstract class com.example.myapplication.Java.Tree {
+~ RBNode<T> root
++ {static} int LL
++ {static} int LR
++ {static} int RR
++ {static} int RL
++ <<Create>> Tree()
++ RBNode<T> getRoot()
++ RBNode<T> findNode(T)
++ {abstract}void insert(T)
++ {abstract}void delete(T)
++ boolean isLeft(RBNode<T>)
++ void leftRotate(RBNode<T>)
++ void rightRotate(RBNode<T>)
++ int getRotateType(RBNode<T>)
++ void adjustAfterInsert(RBNode<T>)
++ int getRemoveRotateType(RBNode<T>)
++ void adjustAfterRemove(RBNode<T>)
++ RBNode<T> successNode(RBNode<T>)
++ RBNode<T> provNode(RBNode<T>)
++ RBNode<T> getReplaceNode(RBNode<T>)
+}
+
+
+class com.example.myapplication.Java.RBNode {
+- T data
+- RBNode<T> left
+- boolean isRed
+~ <<Create>> RBNode(T)
++ void addRBNode(RBNode<T>)
++ T getData()
++ void setData(T)
++ RBNode<T> getLeft()
++ void setLeft(RBNode<T>)
++ RBNode<T> getRight()
++ void setRight(RBNode<T>)
++ RBNode<T> getParent()
++ void setParent(RBNode<T>)
++ boolean isRed()
++ void setRed(boolean)
++ String toString()
+}
+
+
+class com.example.myapplication.Search.Search {
+~ String searchName
+~ String symbol
+~ Object value
++ <<Create>> Search(String,String,Object)
++ String getSearchName()
++ String getSymbol()
++ Object getValue()
++ boolean isStringValue()
++ boolean isIntegerValue()
++ String getStringValue()
++ Integer getIntegerValue()
++ boolean equals(Object)
++ int hashCode()
++ String toString()
+}
+
+
+
+
+com.example.myapplication.TokenizerParser.Exp <|-- com.example.myapplication.TokenizerParser.StringSearchExp
+com.example.myapplication.javaclass.UserState <|-- com.example.myapplication.javaclass.NoSessionState
+com.example.myapplication.ui.adapter.Adapter <|-- com.example.myapplication.ui.adapter.StoreAdapter
+com.example.myapplication.ui.adapter.StoreAdapter +.. com.example.myapplication.ui.adapter.StoreAdapter$StoreViewHolder
+com.example.myapplication.ui.adapter.ViewHolder <|-- com.example.myapplication.ui.adapter.StoreAdapter$StoreViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myapplication.ui.adapter.StoreActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myapplication.UploadInformation
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myapplication.Register
+com.example.myapplication.ui.adapter.Comparable <|.. com.example.myapplication.ui.adapter.UsersBean
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myapplication.Login
+com.example.myapplication.javaclass.UserState <|-- com.example.myapplication.javaclass.SessionState
+android.app.Activity <|-- com.example.myapplication.MapActivity
+com.example.myapplication.TokenizerParser.Exp <|-- com.example.myapplication.TokenizerParser.StringExp
+com.example.myapplication.TokenizerParser.Exp <|-- com.example.myapplication.TokenizerParser.IntSearchExp
+com.example.myapplication.TokenizerParser.Exp <|-- com.example.myapplication.TokenizerParser.FullExp
+com.example.myapplication.TokenizerParser.Token +.. com.example.myapplication.TokenizerParser.Token$IllegalTokenException
+com.example.myapplication.TokenizerParser.IllegalArgumentException <|-- com.example.myapplication.TokenizerParser.Token$IllegalTokenException
+android.app.Activity <|-- com.example.myapplication.SearchActivity
+com.firebase.ui.database.FirebaseRecyclerAdapter <|-- com.example.myapplication.ui.adapter.StoreUserAdapter
+com.example.myapplication.ui.adapter.StoreUserAdapter +.. com.example.myapplication.ui.adapter.StoreUserAdapter$myViewHolder
+com.example.myapplication.ui.adapter.ViewHolder <|-- com.example.myapplication.ui.adapter.StoreUserAdapter$myViewHolder
+com.example.myapplication.Java.Tree <|-- com.example.myapplication.Java.RedBlackTree
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myapplication.MainActivity
+com.example.myapplication.TokenizerParser.Parser +.. com.example.myapplication.TokenizerParser.Parser$IllegalProductionException
+com.example.myapplication.TokenizerParser.IllegalArgumentException <|-- com.example.myapplication.TokenizerParser.Parser$IllegalProductionException
+com.example.myapplication.Java.Comparable <|.. com.example.myapplication.Java.User
+com.example.myapplication.Java.Comparable <|.. com.example.myapplication.Java.Goods
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myapplication.UserView
+@enduml
