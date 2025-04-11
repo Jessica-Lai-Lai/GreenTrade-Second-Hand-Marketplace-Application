@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--@author u7741198 Jessica Lai-->
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadInformation">
+
+    <TextView
+        android:id="@+id/upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Upload Information"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        android:textStyle="bold|italic" />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userID"
+        android:layout_below="@id/upload"
+        android:background="#307C7A7E"
+        android:hint="UserID"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"/>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/useruName"
+        android:layout_below="@id/userID"
+        android:background="#307C7A7E"
+        android:hint="UserName"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawablePadding="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userPassword"
+        android:layout_below="@id/useruName"
+        android:background="#307C7A7E"
+        android:hint="UserPassword"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawablePadding="20dp" />
+
+    <EditText
+        android:id="@+id/userSurl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userPassword"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#307C7A7E"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawablePadding="20dp"
+        android:hint="UserSurl"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+    <TextView
+        android:id="@+id/addGood"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/userSurl"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+
+        android:text="ADD Good"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/likeGood"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/userSurl"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+
+        android:layout_toRightOf="@id/addGood"
+
+        android:text="Like Good"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold|italic" />
+
+    <EditText
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:id="@+id/goodsID1"
+        android:layout_below="@id/addGood"
+        android:background="#307C7A7E"
+        android:hint="GoodsID1"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+
+        android:padding="15dp"
+        android:drawableLeft="@drawable/baseline_add_circle_outline_24"
+        android:drawablePadding="20dp" />
+
+    <EditText
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:id="@+id/goodsID2"
+        android:layout_below="@id/goodsID1"
+        android:background="#307C7A7E"
+        android:hint="GoodsID2"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+
+        android:padding="15dp"
+        android:drawableLeft="@drawable/baseline_add_circle_outline_24"
+        android:drawablePadding="20dp" />
+
+    <EditText
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:id="@+id/goodsID3"
+        android:layout_below="@id/goodsID2"
+        android:background="#307C7A7E"
+        android:hint="GoodsID3"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+
+        android:padding="15dp"
+        android:drawableLeft="@drawable/baseline_add_circle_outline_24"
+        android:drawablePadding="20dp" />
+
+    <EditText
+        android:id="@+id/likeID1"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/likeGood"
+
+
+
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+
+        android:layout_toRightOf="@id/goodsID1"
+        android:background="#307C7A7E"
+        android:drawableLeft="@drawable/baseline_thumb_up_off_alt_24"
+        android:drawablePadding="20dp"
+        android:hint="LikeID1"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:id="@+id/likeID2"
+        android:layout_below="@id/likeID1"
+        android:background="#307C7A7E"
+        android:hint="LikeID2"
+
+        android:layout_toRightOf="@id/goodsID2"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="15dp"
+        android:drawableLeft="@drawable/baseline_thumb_up_off_alt_24"
+        android:drawablePadding="20dp" />
+
+
+    <EditText
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:id="@+id/likeID3"
+        android:layout_below="@id/likeID2"
+        android:background="#307C7A7E"
+        android:hint="LikeID3"
+        android:layout_toRightOf="@id/goodsID3"
+
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="15dp"
+        android:drawableLeft="@drawable/baseline_thumb_up_off_alt_24"
+        android:drawablePadding="20dp" />
+
+    <ProgressBar
+
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/uploadbtn"
+        android:layout_below="@id/likeID3"
+        android:text="Upload"
+        android:backgroundTint="@color/Green_Lake"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backhomebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/likeID3"
+
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+
+        android:backgroundTint="@color/Green_Lake"
+        android:text="BackToHome" />
+
+
+</RelativeLayout>
