@@ -172,27 +172,6 @@ The project includes a comprehensive unit test suite:
 - **Search Performance**: Support for complex query conditions
 - **Data Persistence**: Firebase Realtime Database
 
-## 🤝 Team Contributions
-
-### Team Members
-- **Jinqiao Jiang** - Data structures and Red-Black tree implementation
-- **Jin Zhang** - Search functionality and map integration
-- **Xinyue Huang** - Product and user class design
-- **Dong-Jhang Wu** - Lexical analyzer and parser
-- **Jessica Lai** - UI design and user authentication
-
-### Contribution Ratio
-Each team member has a 20% contribution, demonstrating excellent team collaboration.
-
-## 📄 License
-
-This project is an academic project for learning and research purposes only.
-
-## 📞 Contact
-
-For questions or suggestions, please contact the development team.
-
----
 
 **GreenTrade** - Making second-hand trading more eco-friendly, making communities more sustainable 🌱
 
